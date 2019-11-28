@@ -1,0 +1,35 @@
+record(aSub, "$(SYS)-$(EVR):Event-$(EVT)-TimeCalc"){
+	field(SNAM, "getTimeStamp_aSub")
+	field(FTA,  "LONG")     
+	field(NOA,  "1")  	
+	field(INPA, "$(SYS)-$(EVR):Event-$(EVT)-SP PP")
+	field(FTB,  "DOUBLE")
+	field(NOB, "1")
+	field(INPB, "$(SYS)-$(EVR):Link-Clk-SP PP")
+	field(FTVA, "ULONG")
+	field(NOVA, "1")
+	field(OUTA, "$(SYS)-$(EVR):Event-$(EVT)-Sec PP")
+	field(FTVB, "ULONG")
+	field(NOVB, "1")
+	field(OUTB, "$(SYS)-$(EVR):Event-$(EVT)-Ticks PP")	
+	field(FTVC, "ULONG")
+	field(NOVC, "1")
+	field(OUTC, "$(SYS)-$(EVR):Event-$(EVT)-Nanos PP")
+}
+
+record(longin, "$(SYS)-$(EVR):Event-$(EVT)-Sec") {
+  field(DESC, "Timestamp value upper 32 bits")
+  field(VAL, "0")
+}
+
+record(longin, "$(SYS)-$(EVR):Event-$(EVT)-Ticks") {
+  field(DESC, "Timestamp value lower 32 bits")
+  field(VAL, "0")
+  field(EGU, "Ticks")
+}
+
+record(longin, "$(SYS)-$(EVR):Event-$(EVT)-Nanos") {
+  field(DESC, "Timestamp value lower 32 bits Nanos")
+  field(VAL, "0")
+  field(EGU, "Nanos")
+}
