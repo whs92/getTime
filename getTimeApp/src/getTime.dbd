@@ -5,3 +5,4 @@
 #registrar(myRegistrar)
 #variable(myVariable)
 function(getTimeStamp_aSub)
+function(getPVTimeStamp_aSub)

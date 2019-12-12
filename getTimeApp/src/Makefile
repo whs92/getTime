@@ -17,6 +17,7 @@ DBD += getTime.dbd
 
 # specify all source files to be compiled and added to the library
 getTime_SRCS += getTimestamp_aSub.c
+getTime_SRCS += getPVTimestamp_aSub.c
 
 getTime_LIBS += $(EPICS_BASE_IOC_LIBS)
 

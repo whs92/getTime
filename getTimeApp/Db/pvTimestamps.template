@@ -1,0 +1,59 @@
+record(aSub, "$(PV)-TimeCalc"){
+	field(SNAM, "getPVTimeStamp_aSub")
+	field(FTA,  "LONG")     
+	field(NOA,  "1")  	
+	field(INPA, "$(PV)-SP PP")
+	field(FTVA, "ULONG")
+	field(NOVA, "1")
+	field(OUTA, "$(PV)-Sec PP")
+	field(FTVB, "ULONG")
+	field(NOVB, "1")
+	field(OUTB, "$(PV)-Nanos PP")	
+	field(FTVC, "DOUBLE")
+	field(NOVC, "1")
+	field(OUTC, "$(PV)-Time PP")
+}
+
+record(longin, "$(PV)-Sec") {
+  field(DESC, "Timestamp value upper 32 bits")
+  field(VAL, "0")
+}
+
+record(longin, "$(PV)-Nanos") {
+  field(DESC, "Timestamp value lower 32 bits Nanos")
+  field(VAL, "0")
+  field(EGU, "Nanos")
+}
+
+record(ai, "$(PV)-Time"){
+	field(DESC, Timestamp of $(PV))
+	field(EGU, "S")
+	field(PREC, "10")
+	field(FLNK, ""$(PV)-FCalc"")
+}
+
+record(calc, "$(PV)-FCalc"){
+	field(INPA, "$(PV)-Time NPP")
+	field(INPB, "$(PV)-TimeOld NPP")
+	field(CALC, "1/(A-B)")
+	field(FLNK, "$(PV)-TimeOld"
+}
+
+record(ai, "$(PV)-TimeOld")
+	field(INP, "$(PV)-Time NPP")
+	field(PREC, "10")
+	field(EGU, "S")
+	field(FLNK, "$(PV)-FreqBf"
+}
+
+record(compress, "$(PV)-FreqBf"){
+	field(INP, "$(PV)-FCalc NPP")
+	field(NSAM, "$(NSAM))
+	field(ALG, "Circular Buffer")
+}
+
+field(compress, "$(PV)-Freq"){
+	field(INP, "$(PV)-FreqBf")
+	field(N, "$(NSAM)")
+	field(ALG,"Average")
+}
