@@ -23,7 +23,7 @@ unsigned long ticksPerSecond=0;
 				
 		*(unsigned long *)prec->vala = tick.secPastEpoch; 		//Seconds past EPICS TimeStamp Epoch	
 		*(unsigned long *)prec->valb = tick.nsec;	
-		*(double *)prec->valc = tick.secPastEpoch + (double)tick.nsec*NANOSPERSECOND;
+		*(double *)prec->valc = tick.secPastEpoch + (double)tick.nsec/NANOSPERSECOND;
 		
 		return 0; 
 	}
